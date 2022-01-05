@@ -23,18 +23,26 @@ function Search(props) {
 
     return (
         <>
-            <h3>Search Bar</h3>
 
-            <DebounceInput
-                name="qInput"
-                type="text"
-                id="search"
-                debounceTimeout={300}
-                value={new_state}
-                onChange={event => new_setState(event.target.value)}
-            />
+            <div className="row">
+                <div className="col-md-6 offset-md-3">
 
-            <p>Results for "{new_state}"</p>
+                    <h3>Search Bar</h3>
+
+                    <DebounceInput
+                        name="qInput"
+                        type="text"
+                        id="search"
+                        className="form-control"
+                        debounceTimeout={300}
+                        value={new_state}
+                        onChange={event => new_setState(event.target.value)}
+                    />
+
+                    <p>Results for "{new_state}"</p>
+                </div>
+            </div>
+
 
             <div className="row row-cols-1 row-cols-md-3 g-4 text-center">
                 {state

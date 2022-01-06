@@ -52,6 +52,17 @@ function Home() {
         setCurrentPage(selectedPage);
     }
 
+    const clearState = () =>{
+        setSearch('')
+        setPh('')
+        setSrm('')
+        setPhChecked('')
+        setSrmChecked('')
+    }
+    function handleSubmit () {
+        clearState()
+    }
+
     function getData() {
         const baseUrl = 'https://api.punkapi.com/v2/beers?page=1&per_page=60';
         fetch(baseUrl)
@@ -71,6 +82,8 @@ function Home() {
         <>
 
             <Search search={search} setSearch={setSearch} />
+            
+            <button type="button" onClick={handleSubmit} className="btn btn-primary">Primary</button> 
 
             <SliderSRM srm={srm} setSrm={setSrm} srmChecked={srmChecked} setSrmChecked={setSrmChecked} />
 

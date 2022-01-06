@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import SliderSRM from "../components/SliderSRM";
 import SliderPH from "../components/SliderPH";
+import ReactPaginate from 'react-paginate';
 
 function Home() {
 
@@ -39,6 +40,18 @@ function Home() {
 
     const [data, setData] = useState([])
 
+    const [currentPage, setCurrentPage] = useState(0);
+    const PER_PAGE = 6;
+    const offset = currentPage * PER_PAGE;
+    const currentPageData = data
+        .slice(offset, offset + PER_PAGE)
+    const pageCount = Math.ceil(data.length / PER_PAGE);
+
+    function handlePageClick({ selected: selectedPage })
+    {
+        setCurrentPage(selectedPage);
+    }
+
     function getData() {
         const baseUrl = 'https://api.punkapi.com/v2/beers?page=1&per_page=60';
         fetch(baseUrl)
@@ -51,6 +64,8 @@ function Home() {
     useEffect(() => {
         getData()
     }, [])
+
+
 
     return (
         <>
@@ -72,6 +87,21 @@ function Home() {
                             item => <Card key={item.id} image_url={item.image_url} name={item.name} first_brewed={item.first_brewed} />
                         )
                 }
+            </div>
+            <div className="row mx-0">
+                <div className="col-md-6 offset-md-5">
+                    <ReactPaginate
+                    previousLabel={"<<"}
+                    nextLabel={">>"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={pageCount}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"}
+                    />  
+                </div>
             </div>
         </>
     )

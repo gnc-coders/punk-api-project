@@ -3,9 +3,7 @@ import { DebounceInput } from "react-debounce-input";
 function Search({search, setSearch}) {
     return (
         <>
-            <div className="row mx-0">
-                <div className="col-md-6 offset-md-3">
-
+            
                     <DebounceInput
                         name="qInput"
                         type="text"
@@ -14,11 +12,9 @@ function Search({search, setSearch}) {
                         debounceTimeout={300}
                         value={search}
                         onChange={event => setSearch(event.target.value)}
+                        placeholder="Search beers by name"
                     />
-
-                    <p>Results for "{search}"</p>
-                </div>
-            </div>
+                
         </>
     )
 }

@@ -4,16 +4,22 @@ import Card from "../components/Card";
 import SliderSRM from "../components/SliderSRM";
 import SliderPH from "../components/SliderPH";
 import ReactPaginate from 'react-paginate';
+import VolumeButton from "../components/VolumeButton";
+import API_URL from "../data/api";
 
 function Home() {
 
     const [search, setSearch] = useState("")
 
+    const [baseUrl, setBaseUrl] = useState(`${API_URL}`)
+
+    const [resetButton, setResetButton] = useState(false)
+
     const [srm, setSrm] = useState(0)
     const [srmChecked, setSrmChecked] = useState(false)
 
     function srmFilter(item) {
-        if (srmChecked) {
+        if (srmChecked) { //switch açıksa çalış
             console.log("srm")
             if (item.srm >= srm) {
                 return true
@@ -40,31 +46,30 @@ function Home() {
 
     const [data, setData] = useState([])
 
-    const [currentPage, setCurrentPage] = useState(0);
-    const PER_PAGE = 6;
-    const offset = currentPage * PER_PAGE;
-    const currentPageData = data
-        .slice(offset, offset + PER_PAGE)
-    const pageCount = Math.ceil(data.length / PER_PAGE);
+    // const [currentPage, setCurrentPage] = useState(0);
+    // const PER_PAGE = 6;
+    // const offset = currentPage * PER_PAGE;
+    // const currentPageData = data
+    //     .slice(offset, offset + PER_PAGE)
+    // const pageCount = Math.ceil(data.length / PER_PAGE);
 
-    function handlePageClick({ selected: selectedPage })
-    {
-        setCurrentPage(selectedPage);
-    }
+    // function handlePageClick({ selected: selectedPage })
+    // {
+    //     setCurrentPage(selectedPage);
+    // }
 
-    const clearState = () =>{
+    const clearState = () => {
         setSearch('')
-        setPh('')
-        setSrm('')
-        setPhChecked('')
-        setSrmChecked('')
+        setPhChecked(false)
+        setSrmChecked(false)
+
     }
-    function handleSubmit () {
+    function handleSubmit() {
         clearState()
+        setResetButton(true)
     }
 
     function getData() {
-        const baseUrl = 'https://api.punkapi.com/v2/beers?page=1&per_page=60';
         fetch(baseUrl)
             .then(response => response.json())
             .then(json => {
@@ -74,16 +79,22 @@ function Home() {
 
     useEffect(() => {
         getData()
-    }, [])
+    }, [baseUrl])
 
 
 
     return (
         <>
+            <div className="row mx-0">
+                <div className="col-md-5 offset-md-3">
+                    <Search search={search} setSearch={setSearch} />
+                </div>
+                <div className="col-md-4">
+                    <button type="button" onClick={handleSubmit} className="btn btn-primary">Reset</button>
+                </div>
+            </div>
 
-            <Search search={search} setSearch={setSearch} />
-            
-            <button type="button" onClick={handleSubmit} className="btn btn-primary">Primary</button> 
+            <VolumeButton setBaseUrl={setBaseUrl} baseUrl={baseUrl} resetButton={resetButton} setResetButton={setResetButton} />
 
             <SliderSRM srm={srm} setSrm={setSrm} srmChecked={srmChecked} setSrmChecked={setSrmChecked} />
 
@@ -92,7 +103,7 @@ function Home() {
             <div className="row row-cols-1 row-cols-md-3 g-4 text-center mx-0 mt-5">
                 {
                     data.filter(
-                        item => item.name.toLowerCase().includes(search) || item.name.toUpperCase().includes(search) || item.name.includes(search)
+                        item => item.name.toLowerCase().includes(search.toLowerCase())
                     )
                         .filter(srmFilter)
                         .filter(phFilter)
@@ -101,7 +112,7 @@ function Home() {
                         )
                 }
             </div>
-            <div className="row mx-0">
+            {/* <div className="row mx-0">
                 <div className="col-md-6 offset-md-5">
                     <ReactPaginate
                     previousLabel={"<<"}
@@ -115,7 +126,7 @@ function Home() {
                     activeClassName={"active"}
                     />  
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }

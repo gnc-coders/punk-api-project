@@ -3,7 +3,8 @@ import logo from '../assets/logo.png'
 function Footer() {
     return (
         <>
-            <footer className="container py-5 mt-5">
+        <hr className="mt-5"/>
+            <footer className="container py-5">
                 <div className="row">
                     <div className="col-6 col-md">
                         <img src={logo} alt="logo" width={64} />

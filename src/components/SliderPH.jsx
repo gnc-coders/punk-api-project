@@ -1,8 +1,6 @@
-import { Slider, Switch, Typography } from 'antd';
+import { Slider, Switch} from 'antd';
 
 function SliderPH({ ph, setPh, phChecked, setPhChecked }) {
-
-    const { Title } = Typography;
 
     const handleValueChange = (newPh) => {
         console.log(newPh)
@@ -15,20 +13,23 @@ function SliderPH({ ph, setPh, phChecked, setPhChecked }) {
 
     return (
         <>
-            <div className="container-fluid">
-                <div className="row">
+           
+            <div className="container">
+                <div className="row my-5 mx-0">
                     <div className="col-md-1">
                         <Switch checked={phChecked} onChange={handleCheckedChange} />
                     </div>
                     <div className="col-md-1">
-                        <Title level={3}>PH</Title>
+                        <h5>PH</h5>
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-4 ms-5">
                         <Slider range disabled={!phChecked} defaultValue={ph} onChange={handleValueChange} step={0.1} min={0} max={7} />
                     </div>
                 </div>
             </div>
+
         </>
+
     )
 }
 

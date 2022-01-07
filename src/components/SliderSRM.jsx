@@ -1,8 +1,6 @@
-import { Slider, Switch, Typography, Row, Col } from 'antd';
+import { Slider, Switch } from 'antd';
 
 function SliderSRM({ srm, setSrm, srmChecked, setSrmChecked }) {
-
-    const { Title } = Typography;
 
     const handleValueChange = (newSrm) => {
         setSrm(newSrm);
@@ -14,19 +12,21 @@ function SliderSRM({ srm, setSrm, srmChecked, setSrmChecked }) {
 
     return (
         <>
-            <div className="container-fluid">
-                <div className="row">
+
+            <div className="container">
+                <div className="row my-5 mx-0">
                     <div className="col-md-1">
                         <Switch checked={srmChecked} onChange={handleCheckedChange} />
                     </div>
                     <div className="col-md-1">
-                        <Title level={3}>SRM</Title>
+                        <h5>SRM</h5>
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-4 ms-5">
                         <Slider disabled={!srmChecked} defaultValue={srm} onChange={handleValueChange} step={0.5} min={0} max={100} />
                     </div>
                 </div>
             </div>
+
         </>
     )
 }

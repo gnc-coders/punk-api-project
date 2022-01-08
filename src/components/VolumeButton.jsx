@@ -2,8 +2,7 @@ import { Slider } from 'antd';
 import { useEffect, useState } from "react";
 import API_URL from '../data/api';
 
-function VolumeButton({ baseUrl, setBaseUrl, resetButton, setResetButton }) {
-
+function VolumeButton({ setBaseUrl, resetButton, setResetButton }) {
 
     useEffect(() => {
         if (resetButton) {
@@ -25,35 +24,31 @@ function VolumeButton({ baseUrl, setBaseUrl, resetButton, setResetButton }) {
         setBaseUrl(`${API_URL}`)
     } else if (gtButton) {
         setBaseUrl(`${API_URL}&abv_gt=${volume}`)
-    } else { setBaseUrl(`${API_URL}&abv_lt=${volume}`) }
+    } else {
+        setBaseUrl(`${API_URL}&abv_lt=${volume}`)
+    }
 
     function none() {
-
         setNoneButton(true)
         setGtButton(false)
         setLtButton(false)
-
     }
 
     function greaterThan() {
-        
         setNoneButton(false)
         setGtButton(true)
         setLtButton(false)
     }
 
     function lowerThan() {
-        
         setNoneButton(false)
         setGtButton(false)
         setLtButton(true)
     }
 
-    function handleValueChange(new_volume) {
-        setVolume(new_volume)
+    function handleValueChange(newVolume) {
+        setVolume(newVolume)
     }
-
-
 
     return (
         <>
@@ -72,9 +67,8 @@ function VolumeButton({ baseUrl, setBaseUrl, resetButton, setResetButton }) {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }
 
-export default VolumeButton;
+export default VolumeButton

@@ -1,9 +1,10 @@
-import React from 'react'
 import logo from '../assets/logo.png'
+
 function Footer() {
+    
     return (
         <>
-        <hr className="mt-5"/>
+            <hr className="mt-5" />
             <footer className="container py-5">
                 <div className="row">
                     <div className="col-6 col-md">
@@ -35,9 +36,9 @@ function Footer() {
                             <li><a className="link-secondary text-decoration-none" href="https://developer.mozilla.org/en-US/docs/Web/HTML" rel='noreferrer' target="_blank">HTML</a></li>
                             <li><a className="link-secondary text-decoration-none" href="https://developer.mozilla.org/en-US/docs/Web/CSS" rel='noreferrer' target="_blank">CSS</a></li>
                             <li><a className="link-secondary text-decoration-none" href="https://getbootstrap.com/" rel='noreferrer' target="_blank">Bootstrap</a></li>
+                            <li><a className="link-secondary text-decoration-none" href="https://ant.design/" rel='noreferrer' target="_blank">Ant Design</a></li>
                             <li><a className="link-secondary text-decoration-none" href="https://tr.reactjs.org/" rel='noreferrer' target="_blank">React</a></li>
                             <li><a className="link-secondary text-decoration-none" href="https://www.npmjs.com/package/react-debounce-input" rel='noreferrer' target="_blank">react-debounce-input</a></li>
-                            <li><a className="link-secondary text-decoration-none" href="https://www.npmjs.com/package/react-paginate" rel='noreferrer' target="_blank">react-paginate</a></li>
                         </ul>
                     </div>
                     <div className="col-6 col-md">

@@ -1,13 +1,16 @@
-import Search from "../components/Search";
 import { useState, useEffect } from "react";
+import Search from "../components/Search";
 import Card from "../components/Card";
 import SliderSRM from "../components/SliderSRM";
 import SliderPH from "../components/SliderPH";
-import ReactPaginate from 'react-paginate';
 import VolumeButton from "../components/VolumeButton";
 import API_URL from "../data/api";
+import { Pagination } from 'antd'
 
 function Home() {
+
+    const [data, setData] = useState([])
+    const [filteredData, setFilteredData] = useState([])
 
     const [search, setSearch] = useState("")
 
@@ -18,24 +21,24 @@ function Home() {
     const [srm, setSrm] = useState(0)
     const [srmChecked, setSrmChecked] = useState(false)
 
-    function srmFilter(item) {
-        if (srmChecked) { //switch açıksa çalış
-            console.log("srm")
-            if (item.srm >= srm) {
-                return true
-            }
-            return false
-        }
-        return true
-
-    }
-
     const [ph, setPh] = useState([0, 2])
     const [phChecked, setPhChecked] = useState(false)
 
+    const [current, setCurrent] = useState(1);
+    const [minIndex, setMinIndex] = useState();
+    const [maxIndex, setMaxIndex] = useState();
+    const [pageSize, setPageSize] = useState(3);
+
+    // Filter Data
+    function searchFilter(item) {
+        if (item.name.toLowerCase().includes(search.toLowerCase())) {
+            return true
+        }
+        return false
+    }
+
     function phFilter(item) {
         if (phChecked) {
-            console.log("ph")
             if (item.ph >= ph[0] && item.ph <= ph[1]) {
                 return true
             }
@@ -44,44 +47,47 @@ function Home() {
         return true
     }
 
-    const [data, setData] = useState([])
-
-    // const [currentPage, setCurrentPage] = useState(0);
-    // const PER_PAGE = 6;
-    // const offset = currentPage * PER_PAGE;
-    // const currentPageData = data
-    //     .slice(offset, offset + PER_PAGE)
-    // const pageCount = Math.ceil(data.length / PER_PAGE);
-
-    // function handlePageClick({ selected: selectedPage })
-    // {
-    //     setCurrentPage(selectedPage);
-    // }
-
-    const clearState = () => {
-        setSearch('')
-        setPhChecked(false)
-        setSrmChecked(false)
-
-    }
-    function handleSubmit() {
-        clearState()
-        setResetButton(true)
+    function srmFilter(item) {
+        if (srmChecked) {
+            if (item.srm >= srm) {
+                return true
+            }
+            return false
+        }
+        return true
     }
 
-    function getData() {
+    // Fetch Data
+    useEffect(() => {
         fetch(baseUrl)
             .then(response => response.json())
             .then(json => {
                 setData(json)
             })
-    }
-
-    useEffect(() => {
-        getData()
     }, [baseUrl])
 
+    // Reset Button
+    function handleReset() {
+        setSearch('')
+        setPhChecked(false)
+        setSrmChecked(false)
+        setResetButton(true)
+    }
 
+    // Filtered Data
+    useEffect(() => {
+        setFilteredData(data.filter(searchFilter).filter(srmFilter).filter(phFilter))
+        setMinIndex(0)
+        setMaxIndex(pageSize)
+        setCurrent(1)
+    }, [srm, ph, srmChecked, phChecked, search, baseUrl, data])
+
+    // Pagination
+    function handlePageChange(page) {
+        setCurrent(page)
+        setMinIndex((page - 1) * pageSize)
+        setMaxIndex(page * pageSize)
+    };
 
     return (
         <>
@@ -90,7 +96,7 @@ function Home() {
                     <Search search={search} setSearch={setSearch} />
                 </div>
                 <div className="col-md-4">
-                    <button type="button" onClick={handleSubmit} className="btn btn-primary">Reset</button>
+                    <button type="button" onClick={handleReset} className="btn btn-primary">Reset</button>
                 </div>
             </div>
 
@@ -102,31 +108,14 @@ function Home() {
 
             <div className="row row-cols-1 row-cols-md-3 g-4 text-center mx-0 mt-5">
                 {
-                    data.filter(
-                        item => item.name.toLowerCase().includes(search.toLowerCase())
+                    filteredData.map((item, index) => index >= minIndex && index < maxIndex &&
+                        <Card key={item.id} image_url={item.image_url} name={item.name} first_brewed={item.first_brewed} />
                     )
-                        .filter(srmFilter)
-                        .filter(phFilter)
-                        .map(
-                            item => <Card key={item.id} image_url={item.image_url} name={item.name} first_brewed={item.first_brewed} />
-                        )
                 }
             </div>
-            {/* <div className="row mx-0">
-                <div className="col-md-6 offset-md-5">
-                    <ReactPaginate
-                    previousLabel={"<<"}
-                    nextLabel={">>"}
-                    breakLabel={"..."}
-                    breakClassName={"break-me"}
-                    pageCount={pageCount}
-                    onPageChange={handlePageClick}
-                    containerClassName={"pagination"}
-                    subContainerClassName={"pages pagination"}
-                    activeClassName={"active"}
-                    />  
-                </div>
-            </div> */}
+            <div className="text-center mt-5">
+                <Pagination current={current} onChange={handlePageChange} total={filteredData.length} pageSize={pageSize} showSizeChanger={false} />
+            </div>
         </>
     )
 }

@@ -3,16 +3,15 @@ import { Slider, Switch } from 'antd';
 function SliderSRM({ srm, setSrm, srmChecked, setSrmChecked }) {
 
     const handleValueChange = (newSrm) => {
-        setSrm(newSrm);
+        setSrm(newSrm)
     };
 
     const handleCheckedChange = (checked) => {
-        setSrmChecked(checked);
-    };
+        setSrmChecked(checked)
+    }
 
     return (
         <>
-
             <div className="container">
                 <div className="row my-5 mx-0">
                     <div className="col-md-1">
@@ -26,7 +25,6 @@ function SliderSRM({ srm, setSrm, srmChecked, setSrmChecked }) {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

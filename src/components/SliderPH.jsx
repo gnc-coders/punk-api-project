@@ -1,19 +1,17 @@
-import { Slider, Switch} from 'antd';
+import { Slider, Switch } from 'antd';
 
 function SliderPH({ ph, setPh, phChecked, setPhChecked }) {
 
     const handleValueChange = (newPh) => {
-        console.log(newPh)
-        setPh(newPh);
-    };
+        setPh(newPh)
+    }
 
     const handleCheckedChange = (checked) => {
-        setPhChecked(checked);
-    };
+        setPhChecked(checked)
+    }
 
     return (
         <>
-           
             <div className="container">
                 <div className="row my-5 mx-0">
                     <div className="col-md-1">
@@ -27,9 +25,7 @@ function SliderPH({ ph, setPh, phChecked, setPhChecked }) {
                     </div>
                 </div>
             </div>
-
         </>
-
     )
 }
 

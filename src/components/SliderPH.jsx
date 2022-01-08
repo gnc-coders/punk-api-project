@@ -13,14 +13,14 @@ function SliderPH({ ph, setPh, phChecked, setPhChecked }) {
     return (
         <>
             <div className="container">
-                <div className="row my-5 mx-0">
-                    <div className="col-md-1">
+                <div className="row my-5 mx-0 d-flex">
+                    <div className="col-auto">
                         <Switch checked={phChecked} onChange={handleCheckedChange} />
                     </div>
-                    <div className="col-md-1">
+                    <div className="col-auto">
                         <h5>PH</h5>
                     </div>
-                    <div className="col-md-4 ms-5">
+                    <div className="col-6 ms-3">
                         <Slider range disabled={!phChecked} defaultValue={ph} onChange={handleValueChange} step={0.1} min={0} max={7} />
                     </div>
                 </div>

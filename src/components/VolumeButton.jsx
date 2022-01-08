@@ -62,7 +62,7 @@ function VolumeButton({ setBaseUrl, resetButton, setResetButton }) {
                         <button type="button" className={`${gtButton ? "btn-primary" : "btn-outline-primary"} btn ms-2`} onClick={greaterThan}>Greater Than</button>
                         <button type="button" className={`${ltButton ? "btn-primary" : "btn-outline-primary"} btn ms-2`} onClick={lowerThan}>Lower Than</button>
                     </div>
-                    <div className="col-xl-4 col-lg-12">
+                    <div className="col-xl-4 col-lg-8">
                         <Slider defaultValue={30} min={0} max={100} disabled={noneButton} step={0.1} onChange={handleValueChange} />
                     </div>
                 </div>

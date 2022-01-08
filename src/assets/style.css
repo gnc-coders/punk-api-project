@@ -1,0 +1,39 @@
+.btn-primary {
+    background-color: #7952B3 !important;
+    border-color: #7952B3 !important;
+}
+
+.btn-outline-primary {
+    color: #7952B3 !important;
+    border-color: #7952B3 !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #7952B3 !important;
+    color: white !important;
+}
+
+.btn-outline-primary:focus {
+    box-shadow: 0 0 0 0.25rem rgb(121 82 179 / 50%) !important;
+}
+
+.btn-check:focus+.btn, .btn:focus {
+    box-shadow: 0 0 0 0.25rem rgb(121 82 179 / 25%) !important; 
+}
+
+.form-control:focus {
+    border-color: #7952B3 !important;
+    box-shadow: 0 0 0 0.25rem rgb(121 82 179 / 25%) !important; 
+}
+
+.ant-slider-handle {
+    border: 2px solid #7952B3 !important;
+}
+
+.ant-slider-track {
+    background-color: #7952B3 !important;
+}
+
+.ant-switch-checked {
+    background-color: #7952B3 !important;
+}

@@ -13,14 +13,14 @@ function SliderSRM({ srm, setSrm, srmChecked, setSrmChecked }) {
     return (
         <>
             <div className="container">
-                <div className="row my-5 mx-0">
-                    <div className="col-md-1">
+                <div className="row mx-0 d-flex">
+                    <div className="col-auto">
                         <Switch checked={srmChecked} onChange={handleCheckedChange} />
                     </div>
-                    <div className="col-md-1">
+                    <div className="col-auto">
                         <h5>SRM</h5>
                     </div>
-                    <div className="col-md-4 ms-5">
+                    <div className="col-6">
                         <Slider disabled={!srmChecked} defaultValue={srm} onChange={handleValueChange} step={0.5} min={0} max={100} />
                     </div>
                 </div>

@@ -54,15 +54,15 @@ function VolumeButton({ setBaseUrl, resetButton, setResetButton }) {
         <>
             <div className="container">
                 <div className="row my-5 mx-0">
-                    <div className="col-md-2">
+                    <div className="col-xl-2 col-lg-12">
                         <h5>Alcohol by Volume</h5>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-xl-4 col-lg-12">
                         <button type="button" className={`${noneButton ? "btn-primary" : "btn-outline-primary"} btn ms-5`} onClick={none}>None</button>
                         <button type="button" className={`${gtButton ? "btn-primary" : "btn-outline-primary"} btn ms-2`} onClick={greaterThan}>Greater Than</button>
                         <button type="button" className={`${ltButton ? "btn-primary" : "btn-outline-primary"} btn ms-2`} onClick={lowerThan}>Lower Than</button>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-xl-4 col-lg-12">
                         <Slider defaultValue={30} min={0} max={100} disabled={noneButton} step={0.1} onChange={handleValueChange} />
                     </div>
                 </div>

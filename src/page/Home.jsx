@@ -27,7 +27,6 @@ function Home() {
     const [current, setCurrent] = useState(1);
     const [minIndex, setMinIndex] = useState();
     const [maxIndex, setMaxIndex] = useState();
-    // eslint-disable-next-line no-unused-vars
     const [pageSize, setPageSize] = useState(3);
 
     // Filter Data
@@ -81,7 +80,6 @@ function Home() {
         setMinIndex(0)
         setMaxIndex(pageSize)
         setCurrent(1)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [srm, ph, srmChecked, phChecked, search, baseUrl, data])
 
     // Pagination
@@ -93,11 +91,11 @@ function Home() {
 
     return (
         <>
-            <div className="row mx-0">
-                <div className="col-md-5 offset-md-3">
+            <div className="row mx-0 d-flex">
+                <div className="col-5 offset-3">
                     <Search search={search} setSearch={setSearch} />
                 </div>
-                <div className="col-md-4">
+                <div className="col-4">
                     <button type="button" onClick={handleReset} className="btn btn-primary">Reset</button>
                 </div>
             </div>

@@ -37,3 +37,20 @@
 .ant-switch-checked {
     background-color: #7952B3 !important;
 }
+
+.ant-pagination-item-active {
+    border-color: #7952B3 !important;
+}
+
+.ant-pagination-item:hover {
+    border-color: #7952B3 !important;
+}
+
+.ant-pagination-next:hover button, .ant-pagination-prev:hover button {
+    border-color: #7952B3 !important;
+    color: #7952B3 !important;
+}
+
+svg {
+    vertical-align: 0 !important;
+}

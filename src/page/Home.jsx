@@ -113,9 +113,14 @@ function Home() {
                     )
                 }
             </div>
-            <div className="text-center mt-5">
-                <Pagination current={current} onChange={handlePageChange} total={filteredData.length} pageSize={pageSize} showSizeChanger={false} />
-            </div>
+            {   
+                filteredData.length > 0 ?
+                <div className="text-center mt-5">
+                    <Pagination current={current} onChange={handlePageChange} total={filteredData.length} pageSize={pageSize} showSizeChanger={false} />
+                </div>
+                :
+                <h3 className="text-center text-muted my-5">Beer not found.</h3>
+            }
         </>
     )
 }

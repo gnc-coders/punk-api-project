@@ -12,7 +12,7 @@ function VolumeButton({ setBaseUrl, resetButton, setResetButton }) {
             setResetButton(false)
         }
 
-    }, [resetButton])
+    }, [resetButton,setResetButton])
 
     const [volume, setVolume] = useState('30')
 

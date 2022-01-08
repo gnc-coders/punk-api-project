@@ -27,6 +27,7 @@ function Home() {
     const [current, setCurrent] = useState(1);
     const [minIndex, setMinIndex] = useState();
     const [maxIndex, setMaxIndex] = useState();
+    // eslint-disable-next-line no-unused-vars
     const [pageSize, setPageSize] = useState(3);
 
     // Filter Data
@@ -80,6 +81,7 @@ function Home() {
         setMinIndex(0)
         setMaxIndex(pageSize)
         setCurrent(1)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [srm, ph, srmChecked, phChecked, search, baseUrl, data])
 
     // Pagination

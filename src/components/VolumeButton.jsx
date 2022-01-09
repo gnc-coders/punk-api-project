@@ -58,7 +58,7 @@ function VolumeButton({ setBaseUrl, resetButton, setResetButton }) {
                         <h5>Alcohol by Volume</h5>
                     </div>
                     <div className="col-xl-4 col-lg-12">
-                        <button type="button" className={`${noneButton ? "btn-primary" : "btn-outline-primary"} btn ms-5`} onClick={none}>None</button>
+                        <button type="button" className={`${noneButton ? "btn-primary" : "btn-outline-primary"} btn ms-4`} onClick={none}>None</button>
                         <button type="button" className={`${gtButton ? "btn-primary" : "btn-outline-primary"} btn ms-2`} onClick={greaterThan}>Greater Than</button>
                         <button type="button" className={`${ltButton ? "btn-primary" : "btn-outline-primary"} btn ms-2`} onClick={lowerThan}>Lower Than</button>
                     </div>

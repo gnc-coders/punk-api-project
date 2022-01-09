@@ -1,4 +1,7 @@
-## Punk API Project
+<p align="center">
+ <img width="100px" height="100px" src="https://github.com/gnc-coders/punk-api-project/blob/main/src/assets/logo.png" align="center" alt="GitHub Readme" />
+ <h2 align="center">GNC Coders - Punk API Project</h2>
+</p>
 
 This project developed using [Punk API](https://punkapi.com/documentation/v2)
 

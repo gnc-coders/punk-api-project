@@ -22,6 +22,12 @@ This project developed using [Punk API](https://punkapi.com/documentation/v2)
 
 ----
 
+## Kanban board was used for project management.
+
+![Kanban Board](./docs/kanban-board.png)
+
+---
+
 ### Used Technologies
 
 - Html

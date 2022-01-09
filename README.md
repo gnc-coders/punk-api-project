@@ -6,7 +6,7 @@
 This project developed using [Punk API](https://punkapi.com/documentation/v2).
 
 
-- #### Project [live on](url)
+- #### Project [live on](https://punk-api-project.netlify.app/)
 
 ![Output](./docs/output.gif)
 

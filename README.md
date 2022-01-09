@@ -3,7 +3,7 @@
  <h2 align="center">GNC Coders - Punk API Project</h2>
 </p>
 
-This project developed using [Punk API](https://punkapi.com/documentation/v2)
+This project developed using [Punk API](https://punkapi.com/documentation/v2).
 
 
 - #### Project [live on](url)

@@ -1,13 +1,13 @@
-# Punk API Project
+## Punk API Project
 
 This project developed using [Punk API](https://punkapi.com/documentation/v2)
 
 
-- ### Project [live on](url)
+- #### Project [live on](url)
 
 ![Output](./docs/output.gif)
 
-## Team Members
+### Team Members
 
 | Name                                               |
 | -------------------------------------------------- |
@@ -17,7 +17,7 @@ This project developed using [Punk API](https://punkapi.com/documentation/v2)
 
 ----
 
-## Used Technologies
+### Used Technologies
 
 - Html
 - Css
@@ -26,7 +26,7 @@ This project developed using [Punk API](https://punkapi.com/documentation/v2)
 - React
 - React Debounce Input
 
-## Install & Run
+### Install & Run
 
 ```ssh
 
@@ -37,8 +37,8 @@ $ npm start
 
 ```
 
-## MIT License
+### MIT License
 
-## Feedback
+### Feedback
 
 Please [create an issue](https://github.com/gnc-coders/punk-api-project/issues/new) to request a feature or report a problem.

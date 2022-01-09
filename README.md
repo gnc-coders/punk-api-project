@@ -7,6 +7,8 @@ This project developed using [Punk API](https://punkapi.com/documentation/v2)
 
 ![Output](./docs/output.gif)
 
+---
+
 ### Team Members
 
 | Name                                               |
@@ -26,6 +28,8 @@ This project developed using [Punk API](https://punkapi.com/documentation/v2)
 - React
 - React Debounce Input
 
+---
+
 ### Install & Run
 
 ```ssh
@@ -38,6 +42,8 @@ $ npm start
 ```
 
 ### MIT License
+
+---
 
 ### Feedback
 

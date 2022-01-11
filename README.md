@@ -36,8 +36,8 @@ This project developed using [Punk API](https://punkapi.com/documentation/v2).
 
 ### Used Technologies
 
-- Html
-- Css
+- HTML
+- CSS
 - Bootstrap
 - Ant Design
 - React

@@ -14,11 +14,17 @@ This project developed using [Punk API](https://punkapi.com/documentation/v2).
 
 ### Team Members
 
-| Name                                               |
+| Name                                               || Role                                               |
 | -------------------------------------------------- |
 | [Cansu Yarkın](https://github.com/cansuyarkin)     |
 | [Gamze Gürcan](https://github.com/gamzegurcan)     |
 | [Nejla Şahin](https://github.com/nejlasahin)       |
+
+| Role               | Name                                               |
+| ------------------ | -------------------------------------------------- |
+| Frontend Developer | [Cansu Yarkın](https://github.com/cansuyarkin)     |
+| Frontend Developer | [Gamze Gürcan](https://github.com/gamzegurcan)     |
+| Frontend Developer | [Nejla Şahin](https://github.com/nejlasahin)       |
 
 ----
 

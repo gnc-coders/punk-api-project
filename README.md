@@ -24,6 +24,8 @@ This project developed using [Punk API](https://punkapi.com/documentation/v2).
 
 ## Kanban board was used for project management
 
+You can find kanban board from [here](https://github.com/orgs/gnc-coders/projects/2)
+
 ![Kanban Board](./docs/kanban-board.png)
 
 ---
@@ -55,7 +57,6 @@ $ npm install
 $ npm start
 
 ```
-
 
 ---
 
